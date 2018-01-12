@@ -1,9 +1,13 @@
-from main_app.py import Calendar
+from main_app import Calendar
 import gi
 from gi.repository import Gtk
 gi.require_version('Gtk', '3.0')
 
 class Gui(Gtk.Window, Calendar):
+
+    def __init__(self):
+        self.month = 0
+        self.year = 0
 
     def startup(self):
         start = Gtk.Window()
@@ -100,10 +104,11 @@ class Gui(Gtk.Window, Calendar):
         self.year = self.in_year.get_text()
         print("month :" + self.month)
         print("year  :" + str(self.year))
+        self.Calender_design_layout()
 
     def Calender_design_layout(self):
 
-        if self.month == 1 OR self.month==3 OR self.month==5 OR self.month == 7 OR self.month==8 OR self.month== 10 OR self.month==12:
+        if self.month == 1 or self.month==3 or self.month==5 or self.month == 7 or self.month==8 or self.month== 10 or self.month==12:
             self.last=31
         elif self.month != 2:
             self.last = 30
@@ -117,15 +122,15 @@ class Gui(Gtk.Window, Calendar):
 
         # where self.last represents the last day on that specified Month
         layout = Gtk.Window()
-        layout.set_title("Calender of " + self.month + ", "+ self.year)
+        layout.set_title("Calender of " + str(self.month) + ", "+ str(self.year))
         layout.set_border_width(10)
-        layout.set_default_size(800, 800)
+        layout.set_default_size(400, 400)
 
         grid = Gtk.Grid()
         layout.add(grid)
 
         #default date Buttons Below
-
+        print("Reached part 1")
         date_1 = Gtk.Button(label="1")
         date_2 = Gtk.Button(label="2")
         date_3 = Gtk.Button(label="3")
@@ -165,7 +170,7 @@ class Gui(Gtk.Window, Calendar):
         c.append(0)
 
         for i in range(1, self.last +1):    # row allocation OR Day allocation
-            self.day = get_day(self.year, self.month, i)
+            self.day = self.get_day(int(self.year), self.month, i)
 
             if self.day == "Sunday":
                 r.append(1)
@@ -183,7 +188,7 @@ class Gui(Gtk.Window, Calendar):
                 r.append(7)
 
         # column allotment begis Below
-
+        print("Reached part 2")
         col = 0
         if r[1] == "Sunday":
             k =0
@@ -256,8 +261,23 @@ class Gui(Gtk.Window, Calendar):
                     c.append(col)
          # column allotment finished
 
+        b_sun = Gtk.Button(label="Sunday")
+        b_mon = Gtk.Button(label="Monday")
+        b_tue = Gtk.Button(label="Tuesday")
+        b_wed = Gtk.Button(label="Wednesday")
+        b_thu = Gtk.Button(label="Thursday")
+        b_fri = Gtk.Button(label="Friday")
+        b_sat = Gtk.Button(label="Saturday")
 
-        #for i in range(1, self.last + 1): # column allocation based on maximum catching limit
+        grid.attach(b_sun, 0, 0, 1,1)
+        grid.attach(b_mon, 0, 1, 1,1)
+        grid.attach(b_tue, 0, 2, 1,1)
+        grid.attach(b_wed, 0, 3, 1,1)
+        grid.attach(b_thu, 0, 4, 1,1)
+        grid.attach(b_fri, 0, 5, 1,1)
+        grid.attach(b_sat, 0, 6, 1,1)
+        layout.show_all()
+        layout.connect("delete-event", Gtk.main_quit)
 
 
 
