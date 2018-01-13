@@ -168,29 +168,36 @@ class Gui(Gtk.Window, Calendar):
         c = []
         r.append(0) # initialising so that the following values starts from index 1
         c.append(0)
-
+        p=0
         for i in range(1, self.last +1):    # row allocation OR Day allocation
             self.day = self.get_day(int(self.year), self.month, i)
-
+            p = p+ 1
             if self.day == "Sunday":
+                print("reached r sunday" + str(p))
                 r.append(1)
             elif self.day == "Monday":
+                print("reached r monday" + str(p))
                 r.append(2)
             elif self.day == "Tuesday":
+                print("reached r Tuesday" + str(p))
                 r.append(3)
             elif self.day == "Wednesday":
+                print("reached r Wednesday" + str(p))
                 r.append(4)
             elif self.day == "Thursday":
+                print("reached r Thursday" + str(p))
                 r.append(5)
             elif self.day == "Friday":
+                print("reached r Friday" + str(p))
                 r.append(6)
             elif self.day == "Saturday":
+                print("reached r Saturday" + str(p))
                 r.append(7)
 
         # column allotment begis Below
         print("Reached part 2")
         col = 0
-        if r[1] == "Sunday":
+        if r[1] == 1:
             k =0
             for i in range(1, self.last +1):
                 k = k + 1
@@ -199,7 +206,7 @@ class Gui(Gtk.Window, Calendar):
                     c.append(col)
                 else :
                     c.append(col)
-        elif r[1] == "Monday":
+        elif r[1] == 2:
             k = 1
             col = 1
             for i in range(1, self.last + 1):
@@ -209,7 +216,7 @@ class Gui(Gtk.Window, Calendar):
                     c.append(col)
                 else :
                     c.append(col)
-        elif r[1] == "Tuesday":
+        elif r[1] == 3:
             k = 2
             col = 1
             for i in range(1, self.last + 1):
@@ -219,7 +226,7 @@ class Gui(Gtk.Window, Calendar):
                     c.append(col)
                 else :
                     c.append(col)
-        elif r[1] == "Wednesday":
+        elif r[1] == 4:
             k = 3
             col = 1
             for i in range(1, self.last + 1):
@@ -229,7 +236,8 @@ class Gui(Gtk.Window, Calendar):
                     c.append(col)
                 else :
                     c.append(col)
-        elif r[1] == "Thursday":
+        elif r[1] == 5:
+            print("\nREACHED Thursday C1 \n ")
             k = 4
             col = 1
             for i in range(1, self.last + 1):
@@ -239,7 +247,7 @@ class Gui(Gtk.Window, Calendar):
                     c.append(col)
                 else :
                     c.append(col)
-        elif r[1] == "Friday":
+        elif r[1] == 6:
             k = 5
             col = 1
             for i in range(1, self.last + 1):
@@ -249,7 +257,7 @@ class Gui(Gtk.Window, Calendar):
                     c.append(col)
                 else :
                     c.append(col)
-        elif r[1] == "Saturday":
+        elif r[1] == 7:
             k = 6
             col = 1
             for i in range(1, self.last + 1):
@@ -277,7 +285,7 @@ class Gui(Gtk.Window, Calendar):
         grid.attach(b_fri, 0, 5, 1,1)
         grid.attach(b_sat, 0, 6, 1,1)
         print(" values of r1, r2, r3 \n")
-        print(str(r[1]) + " " + str(c[1]))
+        print(str(r[2]) + " " )
 
         # adding the buttons to the grid layout
 
