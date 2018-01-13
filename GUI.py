@@ -276,10 +276,50 @@ class Gui(Gtk.Window, Calendar):
         grid.attach(b_thu, 0, 4, 1,1)
         grid.attach(b_fri, 0, 5, 1,1)
         grid.attach(b_sat, 0, 6, 1,1)
+        print(" values of r1, r2, r3 \n")
+        print(str(r[1]) + " " + str(c[1]))
+
+        # adding the buttons to the grid layout
+
+        grid.attach(date_1, 2 + c[1], r[1] - 1, 1 , 1)
+        grid.attach(date_2, 2 + c[2], r[2] - 1, 1 , 1)
+        grid.attach(date_3, 2 + c[3], r[3] - 1, 1 , 1)
+        grid.attach(date_4, 2 + c[4], r[4] - 1, 1 , 1)
+        grid.attach(date_5, 2 + c[5], r[5] - 1, 1 , 1)
+        grid.attach(date_6, 2 + c[6], r[6] - 1, 1 , 1)
+        grid.attach(date_7, 2 + c[7], r[7] - 1, 1 , 1)
+        grid.attach(date_8, 2 + c[8], r[8] - 1, 1 , 1)
+        grid.attach(date_9, 2 + c[9], r[9] - 1, 1 , 1)
+        grid.attach(date_10, 2 + c[10], r[10] - 1, 1 , 1)
+        grid.attach(date_11, 2 + c[11], r[11] - 1, 1 , 1)
+        grid.attach(date_12, 2 + c[12], r[12] - 1, 1 , 1)
+        grid.attach(date_13, 2 + c[13], r[13] - 1, 1 , 1)
+        grid.attach(date_14, 2 + c[14], r[14] - 1, 1 , 1)
+        grid.attach(date_15, 2 + c[15], r[15] - 1, 1 , 1)
+        grid.attach(date_16, 2 + c[16], r[16] - 1, 1 , 1)
+        grid.attach(date_17, 2 + c[17], r[17] - 1, 1 , 1)
+        grid.attach(date_18, 2 + c[18], r[18] - 1, 1 , 1)
+        grid.attach(date_19, 2 + c[19], r[19] - 1, 1 , 1)
+        grid.attach(date_20, 2 + c[20], r[20] - 1, 1 , 1)
+        grid.attach(date_21, 2 + c[21], r[21] - 1, 1 , 1)
+        grid.attach(date_22, 2 + c[22], r[22] - 1, 1 , 1)
+        grid.attach(date_23, 2 + c[23], r[23] - 1, 1 , 1)
+        grid.attach(date_24, 2 + c[24], r[24] - 1, 1 , 1)
+        grid.attach(date_25, 2 + c[25], r[25] - 1, 1 , 1)
+        grid.attach(date_26, 2 + c[26], r[26] - 1, 1 , 1)
+        grid.attach(date_27, 2 + c[27], r[27] - 1, 1 , 1)
+        grid.attach(date_28, 2 + c[28], r[28] - 1, 1 , 1)
+        if self.last == 29:
+            grid.attach(date_29, 2 + c[29], r[29] - 1, 1 , 1)
+        elif self.last == 30:
+            grid.attach(date_29, 2 + c[29], r[29] - 1, 1 , 1)
+            grid.attach(date_30, 2 + c[30], r[30] - 1, 1 , 1)
+        elif self.last == 31:
+            grid.attach(date_29, 2 + c[29], r[29] - 1, 1 , 1)
+            grid.attach(date_30, 2 + c[30], r[30] - 1, 1 , 1)
+            grid.attach(date_31, 2 + c[31], r[31] - 1, 1 , 1)
         layout.show_all()
         layout.connect("delete-event", Gtk.main_quit)
-
-
 
 
 obj = Gui()
