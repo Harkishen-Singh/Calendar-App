@@ -3,8 +3,7 @@ class Calendar:
         nd=0
         if y>=2018:
             dy=y-2018
-            if dy>2:
-                nd=nd+1
+
             x=dy//4
             nd=nd+(366*x)+(365*(dy-x))
             if (y%4==0):
@@ -33,6 +32,10 @@ class Calendar:
                 else:
                     nd=nd+31+29+31+30+31+30+31+31+30+31+30+d
             else:
+                if dy==3:
+                    nd=nd+1
+                if dy>6:
+                    nd=nd+1
                 if m==1:
                     nd=nd+d
                 elif m==2:
@@ -59,8 +62,7 @@ class Calendar:
                     nd=nd+31+28+31+30+31+30+31+31+30+31+30+d
         else:
             dy=2017-y
-            if dy<4:
-                nd=nd+1
+
             x=dy//4
             nd=nd+(366*x)+(365*(dy-x))
             if y%4==0:
@@ -89,6 +91,9 @@ class Calendar:
                 else:
                     nd=nd+31-d
             else:
+                if dy!=4:
+                    if dy>=2:
+                        nd=nd+1
                 if m==1:
                     nd=nd+31+30+31+30+31+31+30+31+30+31+28+31-d
                 elif m==2:
@@ -114,43 +119,45 @@ class Calendar:
                 else:
                     nd=nd+(31-d)
         day=nd%7
+        var = ""
         if y>=2018:
             if day==0:
-                print("sun")
+                var = "Sunday"
             if day==1:
-                print("mon")
+                var = "Monday"
             if day==2:
-                print("tue")
+                var = "Tuesday"
             if day==3:
-                print("wed")
+                var = "Wednesday"
             if day==4:
-                print("thur")
+                var = "Thursday"
             if day==5:
-                print("fri")
+                var = "Friday"
             if day==6:
-                print("sat")
+                var = "Saturday"
         else:
             day=7-day
             if day==0:
-                print("sun")
+                var = "Sunday"
             if day==1:
-                print("mon")
+                var = "Monday"
             if day==2:
-                print("tue")
+                var = "Tuesday"
             if day==3:
-                print("wed")
+                var = "Wednesday"
             if day==4:
-                print("thur")
+                var = "Thursday"
             if day==5:
-                print("fri")
+                var = "Friday"
             if day==6:
-                print("sat")
+                var = "Saturday"
+        return var
 
 
 
-
+'''
 obj = Calendar()
 y = int(input("Year : "))
 m = int(input("month :"))
 d = int(input("date : "))
-obj.get_day(y,m,d)
+print(obj.get_day(y,m,d))'''
